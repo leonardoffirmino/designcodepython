@@ -1,10 +1,10 @@
-from flask import request as FlaskRequest
 from typing import Dict
+from flask import request as FlaskRequest
 
 
 class Calculator_1:
-  def calculate(self,request: FlaskRequest) -> Dict: # type: ignore
-    body = request.json()
+  def calculate(self, request: FlaskRequest) -> Dict:  # type: ignore
+    body = request.json
     input_data = self.__validate_body(body)
     splited_number = input_data /3
 
@@ -37,6 +37,6 @@ class Calculator_1:
     return {
       "data":{
         "Calculator":1,
-        "Result": calc_result
+        "Result": round(calc_result,2)
       }
     }

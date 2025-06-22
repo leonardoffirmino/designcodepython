@@ -37,6 +37,6 @@ class Calculator_1:
     return {
       "data":{
         "Calculator":1,
-        "Result": round(calc_result,2)
+        "result": round(calc_result,2)
       }
     }

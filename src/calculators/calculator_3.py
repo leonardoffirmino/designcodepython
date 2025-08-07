@@ -11,7 +11,12 @@ class Calculator3:
       body = request.json
       input_data = self.__validate_body(body)
 
+      variance = self.__calculate_variance(input_data)
+      multiplication = self.__calculate_multiplication(input_data)
+      self.__verify_results(variance,multiplication)
+      formated_response = self.__format_response(multiplication)
 
+      return formated_response
 
     def __validate_body(self,body: Dict) -> List[float]:
       if "numbers" not in body:
@@ -19,6 +24,10 @@ class Calculator3:
       
       input_data = body["numbers"]
       return input_data
+    
+    def __calculate_variance(self,numbers: List[float]) -> float:
+       variance = self.__driver_handler.variance(numbers)
+       return variance
 
     def __calculate_multiplication(self, numbers: List[float]) -> None:
        multiplication = 1
@@ -26,5 +35,16 @@ class Calculator3:
            multiplication *= num
 
        return multiplication
+    
+    def __verify_results(self,variance: float,multiplation:float) ->None:
+       if variance < multiplation:
+          raise Exception("Falha no processo: Variância menor que / Multiplicação!!")
    
    
+    def __format_response(self,variance:float)-> Dict:
+      return {"data": {
+                "Calculator": 3,
+                "value": variance,
+                "Success": True
+            }
+        }

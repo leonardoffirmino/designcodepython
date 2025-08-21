@@ -1,9 +1,9 @@
 from flask import request as FlaskRequest
 from typing import Dict, List
-from src.drivers.interfaces.driver_handler_interface import DriverHanlderInterface
+from src.drivers.interfaces.driver_handler_interface import DriverHandlerInterface
 
 class Calculator2:
-  def __init__(self,driver_handler: DriverHanlderInterface) -> None: 
+  def __init__(self,driver_handler: DriverHandlerInterface) -> None: 
     self.__driver_handler = driver_handler  
   
   def calculate(self, request:FlaskRequest) -> Dict: # type: ignore

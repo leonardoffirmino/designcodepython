@@ -1,6 +1,7 @@
-from src.drivers.interfaces.driver_handler_interface import DriverHandlerInterface
 from flask import request as FlaskRequest
 from typing import Dict, List
+from src.drivers.interfaces.driver_handler_interface import DriverHandlerInterface
+
 
 class Calculator3:
     def __init__(self,driver_handler: DriverHandlerInterface) -> None:
@@ -14,7 +15,7 @@ class Calculator3:
       variance = self.__calculate_variance(input_data)
       multiplication = self.__calculate_multiplication(input_data)
       self.__verify_results(variance,multiplication)
-      formated_response = self.__format_response(multiplication)
+      formated_response = self.__format_response(variance)
 
       return formated_response
 

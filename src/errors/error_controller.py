@@ -4,9 +4,9 @@ from .http_bad_request import HttpBadRequestError
 
 
 def handle_errors(error: Exception) -> Dict:
-  if isinstance(error, HttpUnprocessableEntityError , HttpBadRequestError):
+  if isinstance(error, (HttpUnprocessableEntityError , HttpBadRequestError)):
     return {
-      "error": error.status_code,
+      "status_code": error.status_code,
       "body": {
         "erros" : [{
           "title": error.name,
